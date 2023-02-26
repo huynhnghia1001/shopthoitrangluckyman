@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- <html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}"> -->
+<body>
+<main>
+ <div class="panel-body">
+	
+	  <div class="gthieu">
+		<e><li>Chào mừng bạn đến với SHOP THỜI TRANG LUCKY MAN</li></e>
+		
+			<li>-Thời trang LUCKY MAN cung cấp cho bạn các sản phẩm về thời
+				trang – làm đẹp với giá thành luôn ở mức cạnh tranh nhất và chất
+				lượng là Thương hiệu. Các sản phẩm mà chúng tôi cung cấp bao gồm :</li>
+			<li>+Thời trang nữ : Áo quần – Giày dép – Ba lô, túi xách – Phụ
+				kiện</li>
+			<li>+Thời trang nam : Áo quần – Giày dép – Phụ kiện</li>
+
+			<li>1/ Tiêu chí hoạt động :</li>
+			<li>Đem đến cho khách hàng những sản phẩm về thời trang – làm
+				đẹp mới nhất, hợp xu hướng với chất lượng tốt nhất và giá thành cạnh
+				tranh nhất.
+			<li>2/ Thái độ phục vụ :</li>
+			<li>Thời trang LUCKY MAN luôn đề cao thái độ phục vụ quý khách
+				hàng lên hàng đầu, vì thế mà các nhân viên của chúng tôi luôn được
+				đào tạo các kỹ năng bán hàng chuyên nghiệp, với mong muốn sẽ đem đến
+				cho khách hàng một trải nghiệm mua sắm tốt nhất.</li>
+			<li>3/ Chất lượng sản phẩm :</li>
+			<li>LUCKY luôn cam kết 100% các sản phẩm tại SHOP là hàng chính
+				hãng. Chúng tôi sẽ bồi hoàn 200% giá trị sản phẩm nền khách hàng
+				phát hiện sản phẩm nhận được là hàng giả , hàng nhái.</li>
+
+			<li>Thời trang LUCKY MAN sẽ luôn nỗ lực phấn đấu và đổi mới về
+				chất lượng – mẫu mã – cung cách phục vụ , để đem đến cho quý khách
+				hàng những phút giây mua sắm thật thú vị !</li>
+			<li>Thời trang LUCKY MAN xin gửi đến quý khách hàng lời tri ân
+				sâu sắc , cảm ơn quý khách đã đồng hành và ủng hộ LUCKY trong thời gian
+				qua . Kính chúc quý khách hàng luôn vui tươi , trẻ đẹp , và hãy ghé
+				shop thường xuyên để chọn cho mình những bộ trang phục đẹp nhất nhé
+				!
+			<li>
+		</div>
+	</div>
+<script>
+	const header = document.querySelector("header")
+	window.addEventListener("scroll", function() {
+		x = window.pageYOffset
+		if (x > 0) {
+			header.classList.add("sticky")
+		} else {
+			header.classList.remove("sticky")
+		}
+	})
+
+	const imgPosition = document.querySelectorAll(".aspect-ratio-169 img")
+	const imgContainer = document.querySelector('.aspect-ratio-169')
+	const dotItem = document.querySelectorAll(".dot")
+	let imgNumber = imgPosition.length
+	let index = 0
+	/* console.log(imgPosition) */
+	imgPosition.forEach(function(image, index) {
+		image.style.left = index * 100 + "%"
+		dotItem[index].addEventListener("click", function() {
+			slider(index)
+		})
+	})
+	function imgSlide() {
+		index++;
+		console.log(index)
+		if (index >= imgNumber) {
+			index = 0
+		}
+		slider(index)
+
+	}
+	function slider(index) {
+		imgContainer.style.left = "-" + index * 100 + "%"
+		const dotActive = document.querySelector('.active')
+		dotActive.classList.remove("active")
+		dotItem[index].classList.add("active")
+	}
+	setInterval(imgSlide, 5000)
+</script>
+</main>
+</body>
+</html>

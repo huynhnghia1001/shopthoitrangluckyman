@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index1 :: dynamic(~{::main})}"> 
+	
+	
+<body>
+	
+	<main>
+	<div class="lienhe">
+	<div>
+						<h1><marquee style="color: black; margin-top:60px">Mọi thông tin thắc mắc của quý
+							khách, xin vui lòng nhập form bên dưới chúng tôi sẽ liên hệ ngay
+							cho quý khách! Cảm ơn quý khách đã góp ý!</marquee></h1>
+					</div>
+	
+		
+			<section>
+				<div class="tb-contact-form-widget">
+					
+					
+				</div>
+				<div class="formlh">		
+					<form action="/lienhe/send" id="formlh1">
+					<div><h1 style= "margin-top: 30px; background-color: #FFFACD; border: solid 4px #66CDAA; ">THÔNG TIN LIÊN HỆ</h1></div>
+				<br>
+						<input type="text" name="hoten" placeholder="Họ tên"><br>
+						<input type="text" name="email" placeholder="Địa chỉ Email"><br> 
+						<textarea type = "text" name="mess" placeholder="Nội dung yêu cầu"></textarea><br>
+						<input type="submit" value="Gửi yêu cầu">
+					</form>
+				</div>
+				<div class="hotline-phone-ring-wrap">
+	<div class="hotline-phone-ring">
+		<div class="hotline-phone-ring-circle"></div>
+		<div class="hotline-phone-ring-circle-fill"></div>
+		<div class="hotline-phone-ring-img-circle">
+		<a href="tel:0853244830" class="pps-btn-img">
+			<img src="https://nguyenhung.net/wp-content/uploads/2019/05/icon-call-nh.png" alt="Gọi điện thoại" width="50">
+		</a>
+		</div>
+	</div>
+	<div class="hotline-bar">
+		<a href="tel:0853244830">
+			<span class="text-hotline">0853.244.830</span>
+		</a>
+	</div>
+</div>
+
+		<p>Trang Shop thời trang liên quan</p>
+		<div class="app-google">
+			<img src="/assets/images/fb.png" > <img
+				src="/assets/images/Instagram.jpg">
+		</div>
+		<p>Nhận bản tin Shop</p>
+		<input type="text" placeholder="Nhập email của bạn.....">
+	</section>
+		</div>
+		<iframe
+			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.841454343718!2d105.76842661431225!3d10.029938975271188!2m3
+!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0895a51d60719%3A0x9d76b0035f6d53d0!2zxJDhuqFpIGjhu41jIEPhuqduIFRoxqE!5e0!3m2!1
+svi!2s!4v1633140397162!5m2!1svi!2s"
+			width="100%" height="450" style="border: 0;" allowfullscreen=""
+			loading="lazy"></iframe>
+
+	
+	<div class="footer-center">
+	<p>Công Ty cổ Phần Dự Kim với số đăng ký kinh doanh: 0105777650<br>
+	Địa chỉ đăng ký: Trần Nam Phú, P.Xuân Khánh, Q.Ninh Kiều, TP.Cần Thơ, Việt Nam - 0945518212<br>
+	Đặt hàng online: <b>0945 518 212</b>
+</p>
+</div>
+<div class="footer-bottom">
+	@Shop MFT All right reserved
+</div>
+
+	</main>
+	
+</body>
+
+</html>

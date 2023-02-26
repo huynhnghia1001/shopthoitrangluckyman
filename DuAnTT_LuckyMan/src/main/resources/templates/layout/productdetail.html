@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+    th:replace="~{/layout/index1 :: dynamic(~{::main})}">
+<body>
+<main th:object="${item}">
+<section class="product">
+	<div class="conteiner">
+		<div class="product-top row">
+		</div>
+		<div class="product-content row">
+		<div class="col-sm-3">
+			<div class="product-content-left row">
+			</div>
+				<div class="product-content-left-big-img">
+					<img th:src="@{|/assets/images/*{image}|}" width="500px">
+				</div>
+			<div class="row mb-4">
+			<fieldset>
+					<legend>Sản phẩm khác</legend>
+					<div th:each="h: ${images}">
+						<a th:href="@{|/product/detail/${h.product.id}?cid=${h.productdetail.id}|}">
+				<img th:src="@{|/assets/images/${h.image}|}" height="100px" width="150px">
+			</a>
+				</fieldset>
+				</div>
+				</div>
+				<div class="col-sm-6">
+			<div class="product-content-right">
+				<div class="product-content-right-product-name">
+					<h1 th:text="*{name}"></h1>
+					<p th:text="*{id}"></p>
+				</div>
+				<div class="product-content-right-product-price">
+					<p th:text="*{price}"><sup>Ä‘</sup></p>
+				</div>
+				</div>
+				<table class="table">
+  <tbody>
+    <tr class="bbc">
+      <th scope="col">Name</th>
+      <th scope="col">Color</th>
+      <th scope="col">Size</th>
+      <th scope="col">$</th>
+    </tr>
+  </tbody>
+  <tbody class="bb">
+    <tr th:each="de: ${detail}">
+      <td style="font-size: 20px;">[[${de.product.name}]]</td>
+      <td style="font-size: 20px;">[[${de.color}]]</td>
+      <td style="font-size: 20px;">[[${de.size}]]</td>
+      <td><i style="font-size: 20px;" th:attr="ng-click=@{|cart.add(${de.id})|}" class="fas fa-plus-circle"></i></td>
+    </tr>
+   
+  </tbody>
+</table>
+				
+				
+				<div class="product-content-right-product-button">
+				<button action=/product/list ><i class="fas fa-shopping-cart"></i><p>Tim tại cửa hàng</p></button>
+					
+				</div>
+			
+				
+				</div>
+				<div class="col-sm-3">
+				<div class="product-content-right-bottom">
+					
+						<h2>Thông tin mô tả</h2>
+					
+					<div class="product-content-right-bottom-content-big">
+						<div class="product-content-right-bottom-content-title row">
+							<div class="product-content-right-bottom-content-title-item chitiet" >
+								<ul>
+								<li th:each="a: ${des}">
+								   <p th:utext="${a.text}"></p>
+								</li>
+								</ul>
+							</div>
+					</div>
+				</div> 
+			</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+<section class="product-related conteiner">
+	<div class="product-related-title">
+		<p> SẢN PHẨM LIÊN QUAN</p>
+	</div>
+	<div class="row product-content">
+		<div class="product-related-item" th:each="p:*{Catesmall.products}">
+			<a th:href="@{|/product/detail/${p.id}|}">
+				<img th:src="@{|/assets/images/${p.image}|}" height="250px" width="300px">
+			</a>
+			<h1 th:text="${p.name}"></h1>
+			<p>[[${p.price}]]<sup>Ä‘</sup></p>
+		</div>
+	</div>
+</section>
+
+<section class="app-container">
+	<p>Trang Shop thá»�i trang liÃªn quan</p>
+	<div class="app-google">
+		<img src="/assets/images/fb.png">
+		<img src="/assets/images/Instagram.jpg">
+	</div>
+	<p>Nháº­n báº£n tin Shop</p>
+	<input type="text" placeholder="Nháº­p email cá»§a báº¡n.....">
+</section>
+</main>
+</body>
+
+</html>

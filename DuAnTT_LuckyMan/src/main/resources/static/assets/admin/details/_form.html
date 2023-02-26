@@ -1,0 +1,49 @@
+<div xmlns:th="http://www.thymeleaf.org">
+<div class="panel panel-default">
+	<div class="panel-heading" th:text="#{home.productEdition}">DETAILS EDITION</div>
+	<div class="panel-body">
+		<div class="row">
+					 <div class="form-group col-sm-6">
+						<div>Id</div>
+						<input ng-model="form.product.id" class="form-control">
+					</div> 
+					<div class="form-group col-sm-6">
+						<div>Height</div>
+						<input ng-model="form.height" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-sm-6">
+						<div>Weight</div>
+						<input ng-model="form.weight" class="form-control">
+					</div>
+					<div class="form-group col-sm-6">
+						<div>Color</div>
+						<input ng-model="form.color" type="text" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-sm-6">
+						<div>Size</div>
+						<input ng-model="form.size" type="text" class="form-control">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer text-center">
+		<button ng-click="create()" class="btn btn-primary">
+			<b class="glyphicon glyphicon-plus"></b>Create
+		</button>
+		<button ng-click="update()" class="btn btn-success">
+			<b class="glyphicon glyphicon-save"></b>Update
+		</button>
+		<button ng-click="delete(form)" class="btn btn-danger">
+			<b class="glyphicon glyphicon-trash"></b>Delete
+		</button>
+		<button ng-click="reset()" class="btn btn-info">
+			<b class="glyphicon glyphicon-refresh"></b>Reset
+		</button>
+	</div>
+</div>
+</div>

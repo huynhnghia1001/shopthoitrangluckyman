@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index1 :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<section class="cartegory">
+			
+			<div th:replace="/cart/_cart-info.html"></div>
+			<div class="conteiner">
+
+				<div class="row">
+					<div class="list-group" th:replace="/layout/catesmall.html">  
+					</div>
+					<div class="cartegory-right row">
+
+						<div class="cartegory-right-content row">
+							<div th:each="p: ${items.content}" class="cartegory-right-content-item">
+								<div class="panel-body">
+									<a th:href="@{|/product/detail/${p.id}|}"> <img
+										th:src="@{|/assets/images/${p.image}|}">
+									</a>
+								</div>
+
+
+								<a th:href="@{|/product/detail/${p.id}|}"><h1>[[${p.name}]]</h1></a>
+								<p>
+									[[${p.price}]]<sup>đ</sup>
+									
+								</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+				<div>
+	   <ul class="pager">
+					<li><a  th:href="@{/product/list?p=0}"> <span class="glyphicon glyphicon-hand-up"></span></a></li>
+					<li><a th:href="@{|/product/list?p=${items.number-1}|}"> <span
+							class="glyphicon glyphicon-hand-left"></span></a></li>
+					<li><a>[[${items.number}]] Of [[${items.totalPages-1}]]</a>
+					<li><a th:href="@{|/product/list?p=${items.number+1}|}"> <span
+							class="glyphicon glyphicon-hand-right"></span></a></li>
+					<li><a th:href="@{|/product/list?p=${items.totalPages-1}|}"> <span
+							class="glyphicon glyphicon-hand-down"></span></a></li>
+				</ul> 
+	</div> 
+			
+			
+		</section>
+	</main>
+</body>
+</html>

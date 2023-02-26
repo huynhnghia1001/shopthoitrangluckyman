@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html xmlns:th="http://www.thymeleaf.org" 
+    th:replace="~{/layout/index1 :: dynamic(~{::main})}">
+
+<body>
+<main>
+	<section class="capnhat">
+         <div class="conteiner">
+            <div class="capnhat-content row">
+                <div class="capnhat-content-left row">
+                    <div class="capnhat-content-left-big-img">
+                        <label><img ng-src="{{'/assets/images/'+form.photo}}"></label> 
+                    </div>
+                </div>
+                <div class="capnhat-content-right">
+                    <div class="cnhat">
+                    <h1>Thông tin cập nhật</h1>
+                   <div id="username">[[${#request.remoteUser}]]</div>
+                    <div class="input-box">
+                        <i ></i>
+                        <input ng-model="form.fullname" type="text" placeholder="Fullname">
+                    </div>
+                    <div class="input-box">
+                        <i ></i>
+                        <input ng-model="form.phone" type="text" placeholder="So dien thoai">
+                    </div>
+                    <div class="input-box">
+                        <i ></i>
+                        <input ng-model="form.adress" type="text" placeholder="Dia Chi">
+                    </div>
+                    <div class="input-box">
+                        <i ></i>
+                        <input ng-model="form.email" type="text" placeholder="Email">
+                    </div>
+                    <div class="form-group col-sm-6">
+						<div>Image</div>
+						<input type="file" class="form-control" id="photo"
+							onchange="angular.element(this).scope().imageChanged(this.files)">
+					</div>
+                    <div class="btn-box">
+                        <button ng-click="update()" type="submit">
+                           Cập nhật
+                        </button>
+                    </div>
+                </div>
+                </div>
+                
+            </div>
+        </div> 
+        
+    </section>
+</main>
+</body>
+</html>

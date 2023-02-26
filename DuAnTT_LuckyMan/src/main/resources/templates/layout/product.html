@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index1 :: dynamic(~{::main})}">
+
+<body>
+	<main>
+	   
+		<section class="cartegory">
+	
+				<!-- <div th:replace="/cart/_cart-info.html"></div> -->
+			<div class="conteiner">
+
+				<div class="row">
+				<div class="cartegory-left">
+					<div class="list-group" th:replace="/layout/catesmall.html">  
+					</div> 
+					</div>
+					<div class="cartegory-right row">
+						<div class="cartegory-right-top-item">
+							<!-- <p>Hàng Nữ Mới Về</p> -->
+						</div>
+						<!-- <div class="cartegory-right-top-item">
+							<button>
+								<span>Bộ Lộc</span><i class="fas fa-sort-down"></i>
+							</button>
+						</div> -->
+						<div class="cartegory-right-top-item">
+							<select name="" id="">
+								<option value="">Sắp xếp</option>
+								<option value="">Giá Cao đến thấp</option>
+								<option value="">Giá Thấp đến cao</option>
+							</select>
+						</div>
+						<div class="cartegory-right-content row">
+							<div th:each="p: ${items}"
+								class="cartegory-right-content-item">
+								 <div class="panel-body" >
+									<a th:href="@{|/product/detail/${p.id}|}" > <img
+										th:src="@{|/assets/images/${p.image}|}" height="200px" width="350px">
+									</a>
+								</div> 
+								<a th:href="@{|/product/detail/${p.id}|}"><h1>[[${p.name}]]</h1></a>
+								<p>
+									[[${p.price}]]<sup>đ</sup>
+									
+								</p>
+							</div>
+						</div>
+						
+				
+				</div>
+				</div>
+				<div>
+	   <ul class="pager">
+					<li><a  th:href="@{/product/list?p=0}"> <span class="glyphicon glyphicon-hand-up"></span></a></li>
+					<li><a th:href="@{|/product/list?p=${items.number-1}|}"> <span
+							class="glyphicon glyphicon-hand-left"></span></a></li>
+					<li><a>[[${items.number}]] Of [[${items.totalPages-1}]]</a>
+					<li><a th:href="@{|/product/list?p=${items.number+1}|}"> <span
+							class="glyphicon glyphicon-hand-right"></span></a></li>
+					<li><a th:href="@{|/product/list?p=${items.totalPages-1}|}"> <span
+							class="glyphicon glyphicon-hand-down"></span></a></li>
+				</ul> 
+	</div> 
+				</div>
+		</section>
+	</main>
+</body>
+
+</html>

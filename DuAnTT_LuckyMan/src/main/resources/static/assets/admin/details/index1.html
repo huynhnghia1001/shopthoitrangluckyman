@@ -1,0 +1,25 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <div class="page-wrapper">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="nav nav-tabs" style="font-variant: small-caps;">
+	<li><a data-toggle="tab" data-target="#edit" href="" >Details
+			Editions</a></li>
+	<li class="active"><a data-toggle="tab" data-target='#list'
+		href="" th:text="#{home.tabProList}">List of Details</a></li>
+</ul>
+<div class="tab-content">
+	<div id="edit" class="tab-pane fade">
+		<div ng-include="'/assets/admin/details/_form.html'"></div>
+	</div>
+	<div id="list" class="tab-pane fade in active">
+		<div ng-include="'/assets/admin/details/_table.html'"></div>
+	</div>
+</div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

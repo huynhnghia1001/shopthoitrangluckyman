@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index1 :: dynamic(~{::main})}">
+<body>
+	<main>
+		<div class="mainscreen_a">
+			<div class="card_a">
+
+				<div class="rightside_a">
+					<form>
+						<h1>CheckOut</h1>
+						<h2>Payment Information</h2>
+						<p class="aaa">Purchaser</p>
+						<div class="inputbox_a" id="username">[[${#request.remoteUser}]]</div>
+						
+						<p>Order Date:</p>
+						<div class="inputbox_a">{{order.createDate |date:'dd-MM-yyyy'}}</div>
+						
+						<p class="aaa">Shipping Address</p>
+						<textarea ng-model="order.address" class="inputbox_a"></textarea>
+						
+						<p class="aaa">Fullname</p>
+						<input ng-model="order.fullname" class="inputbox_a" />
+						
+						<p class="aaa">trangthai</p>
+						<i ng-model="order.Đã đặt hàng" />
+						
+						<p class="aaa">Phone</p>
+						<input ng-model="order.phone" class="inputbox_a" />
+						
+						<div class="expcvv_a">
+							<p class="expcvv_text_a">Total:</p>
+							<div class="inputbox_a" id="total">{{cart.amount}}</div>
+							
+							<p class="expcvv_text2_a">Method</p>
+							<input ng-model="order.method" type="text" class="inputbox_a" />
+						</div>
+						<button type="submit" class="button_a" ng-click="order.purchase()" >CheckOut</button>
+				</div>
+				</form>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

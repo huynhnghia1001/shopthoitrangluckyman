@@ -1,0 +1,56 @@
+<div xmlns:th="http://www.thymeleaf.org">
+	<header>
+		<div class="logo">
+			<img src="/assets/images/logo1.gif">
+		</div>
+		<div class="menu">
+
+			<li th:each="c:${cates}"><a
+				th:href="@{|/product/list?cid=${c.id}|}">[[${c.name}]]</a></li>
+			<li><a th:href="@{/order/list}">Đơn hàng của bạn</a></li>
+			<li><a href="">Thông Tin</a></li>
+			<li><a href="/lienhe">Liên hệ</a></li>
+			<li
+				th:if="${#request.isUserInRole('ADMIN') or #request.isUserInRole('STAFF')}">
+				<a th:href="@{/admin/home/index}">Quản Trị</a>
+			</li>
+		</div>
+		<div class="others">
+			<li>
+			<div class="Bao">
+        		<form action="/product/list1" class="search-bar">
+				<input type="search" name="name" pattern=".*\S.*" required>
+				<button class="search-btn" type="submit">
+					<span>Search</span>
+				</button>
+				</form>
+			</div> 
+			</li>
+			<div class="menu">
+				<li><a href=""><i class="fas fa-address-card"></i></a>
+					<ul class="sub-menu">
+						<th:block th:unless="${#request.remoteUser}">
+							<li><a href="/login">Đăng Nhập</a>
+							<li><a href="/quenmk">Quên mật khẩu</a>
+							<li>
+						</th:block>
+						<th:block th:if="${#request.remoteUser}">
+							<li><a href="/doimk">Đổi mật khẩu</a></li>
+							<li><a th:href="@{/capnhat}">Cập nhật tài khoản</a></li>
+							<li><a href="/registration">Đăng Ký</a></li>
+
+							<li><a th:href="@{/security/logoff}">Đăng xuất</a></li>
+						</th:block>
+					</ul></li>
+				<li><a th:href="@{/cart/view}"
+					class="cart position-relative d-inline-flex"
+					aria-label="View your shopping cart"> <i
+						class="fas fa fa-shopping-cart fa-lg"></i> <span
+						class="cart-basket d-flex align-items-center justify-content-center">
+							&nbsp;{{cart.count}}</span>
+				</a></li>
+			</div>
+		</div>
+	</header>
+
+</div>

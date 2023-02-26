@@ -1,0 +1,16 @@
+<div xmlns:th="http://www.thymeleaf.org">
+   <div class="hello">
+   <ul>
+   <li></li>
+   </ul>
+   <ul>
+   <li><a></a></li>
+  <li th:each="p:${catesmall}" ><a th:href="@{|/product/catesname/${p.name}?cateid=${p.category.id}|}">[[${p.name}]]</a></li>
+</ul>
+</div>
+</div>
+
+
+
+
+

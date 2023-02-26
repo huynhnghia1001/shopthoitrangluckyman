@@ -1,0 +1,30 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <div class="page-wrapper">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+   <div class="panel-heading" th:text="#{home.autho}">AUTHORIZING</div>
+   <table class="table table-border">
+      <thead class="bg-success" style="font-variant:small-caps;">
+         <tr>
+            <th></th>
+            <th ng-repeat="role in roles" class="text-center">{{role.name}}</th>
+         </tr>
+      </thead>
+      <tbody>
+          <tr ng-repeat="acc in admins">
+             <td>{{acc.username}}</td>
+             <th ng-repeat="role in roles" class="text-center">
+                <input ng-checked="authority_of(acc,role)" ng-click="authority_changed(acc,role)" type="checkbox">
+             </th>
+          </tr>
+      </tbody>
+   </table>
+</div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

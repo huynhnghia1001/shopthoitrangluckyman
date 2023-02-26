@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+    th:replace="~{/layout/index1 :: dynamic(~{::main})}">
+<body>
+<main th:object="${item}">
+<section class="product">
+	<div class="conteiner">
+		<div class="product-top row">
+		</div>
+		<div class="product-content row">
+		<div class="col-sm-3">
+			<div class="product-content-left row">
+			</div>
+				<div class="product-content-left-big-img">
+					<img th:src="@{|/assets/images/*{image}|}" width="500px">
+				</div>
+			<div class="row mb-4">
+			<fieldset>
+					<legend>Sản phẩm khác</legend>
+					<div th:each="h: ${images}">
+						<a th:href="@{|/product/detail2/${h.product.id}?cid=${h.productdetail.id}|}">
+				<img th:src="@{|/assets/images/${h.image}|}" height="100px" width="100px">
+			</a>
+				</fieldset>
+				</div>
+				</div>
+				<div class="col-sm-6">
+			<div class="product-content-right">
+				<div class="product-content-right-product-name">
+					<h1 th:text="*{productdetail.product.name}"></h1>
+					<p th:text="*{productdetail.product.id}"></p>
+				</div>
+				<div class="product-content-right-product-price">
+					<p th:text="*{productdetail.product.price}"><sup>Ä‘</sup></p>
+				</div>
+				</div>
+				<table class="table">
+  <tbody>
+    <tr>
+      <th scope="col">Height</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Size</th>
+      <th scope="col">$</th>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr th:each="de: ${detail}">
+     
+      <td>[[${de.height}]]</td>
+      <td>[[${de.weight}]]</td>
+      <td>[[${de.size}]]</td>
+      <td></td>
+    </tr>
+   
+  </tbody>
+</table>
+				
+				
+				<div class="product-content-right-product-button">
+					<button th:attr="ng-click=@{|cart.add(${id})|}"><i class="fas fa-shopping-cart"></i><p>Mua HÃ ng</p></button>
+					<button><p>TÃ¬m Táº¡i Cá»­a HÃ ng</p></button>
+				</div>
+				<div class="product-content-right-product-icon">
+					<div class="product-content-right-product-icon-item">
+						<i class="fas fa-phone-alt"></i> <p>Hotline</p>
+					</div>
+					<div class="product-content-right-product-icon-item">
+						<i class="far fa-comments"></i> <p>Chat</p>
+					</div>
+					<div class="product-content-right-product-icon-item">
+						<i class="far fa-envelope"></i> <p>Mail</p>
+					</div>
+				</div>
+				
+				</div>
+				<div class="col-sm-3">
+				<div class="product-content-right-bottom">
+					
+						<h2>ThÃ´ng Tin</h2>
+					
+					<div class="product-content-right-bottom-content-big">
+						<div class="product-content-right-bottom-content-title row">
+							<div class="product-content-right-bottom-content-title-item chitiet" >
+								<ul>
+								<li th:each="a: ${des}">
+								   <p th:utext="${a.text}"></p>
+								</li>
+								</ul>
+							</div>
+					</div>
+				</div> 
+			</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+<!-- <section class="product-related conteiner">
+	<div class="product-related-title">
+		<p> Sáº¢N PHáº¨M LIÃŠN QUAN</p>
+	</div>
+	<div class="row product-content">
+		<div class="product-related-item" th:each="p:*{Catesmall.products}">
+			<a th:href="@{|/product/detail/${p.id}|}">
+				<img th:src="@{|/assets/images/${p.image}|}" height="250px" width="300px">
+			</a>
+			<h1 th:text="${p.name}"></h1>
+			<p>[[${p.price}]]<sup>Ä‘</sup></p>
+		</div>
+	</div>
+</section> -->
+
+</main>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!--  <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index1 :: dynamic(~{::main})}">
+
+<body>
+	<main>
+		<div class="panel panel-primary" th:fragment="shopping_cart">
+			<div class="panel-heading">SHOPPING CART</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Price</th>
+						<th>Quantity</th>
+						<th>Amount</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in cart.items">
+						<td>{{item.id}}</td>
+						<td>{{item.name}}</td>
+						<td>{{item.price | number : 2}}</td>
+						<td><input ng-change="cart.saveToLocalStorage()" ng-model="item.qty" type="number" min="1"
+							style="width: 100px"></td>
+						<td>${{item.qty*item.price | number : 2 }}</td>
+						<td>
+							<button ng-click="cart.remove(item.id)"
+								class="btn btn-sm btn-danger">
+								<i class="glyphicon glyphicon-trash"></i>
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="panel-footer">
+				<button ng-click="cart.clear()" class="btn btn-danger">
+					<i class="glyphicon glyphicon-trash"></i> Clear
+				</button>
+				<a th:href="@{/order/checkout}" class="btn btn-primary"> <i
+					class="glyphicon glyphicon-hand-right"></i>Checkout
+				</a>
+			<p>{{cart.amount | number : 2 }}</p>
+			</div>
+		</div>
+	</main>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index1 :: dynamic(~{::main})}">
+<body>
+
+
+	<main role="main">
+
+		<div class="container mt-4">
+			<div id="thongbao" class="alert alert-danger d-none face"
+				role="alert">
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+
+			<h1  style="font-size: 20px;" class="text-center">Giỏ hàng</h1>
+			<div class="row">
+				<div class="col col-md-12">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th style="font-size: 20px;">Id</th>
+								<th style="font-size: 20px;">Name</th>
+								<th style="font-size: 20px;">Ảnh</th>
+								<th style="font-size: 20px;">Size</th>
+								<th style="font-size: 20px;">Price</th>
+								<th style="font-size: 20px;">Quantity</th>
+								<th style="font-size: 20px;">Amount</th>
+								<th style="font-size: 20px;"></th>
+							</tr>
+						</thead>
+						<tbody id="datarow">
+							<tr ng-repeat="item in cart.items">
+								<td class="Tubasabu">{{item.product.id}}</td>
+								<td class="Tubasabu">{{item.product.name}}</td>
+								<td>
+									<img th:src="@{|/assets/images/{{item.product.image}}|}" height="120px" width="120px">
+								</td>
+								<td class="Tubasabu">{{item.size}}</td>
+								<td class="Tubasabu">{{item.product.price | number : 2}}</td>
+								<td class="Tubasabu"><input ng-change="cart.saveToLocalStorage()"
+									ng-model="item.product.qty" type="number" min="1" style="width: 100px"></td>
+								<td class="Tubasabu">${{item.product.qty*item.product.price | number : 2 }}</td>
+								<td>
+									<button ng-click="cart.remove(item.id)"
+										class="btn btn-warning btn-md">
+										<i class="glyphicon glyphicon-trash"></i>
+									</button>
+								</td>
+							</tr>
+
+						</tbody>
+						
+					</table>
+
+
+					<a th:href="@{/product/list}" class="btn btn-warning btn-md"><i
+						class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Quay về
+						trang chủ</a> <a th:href="@{/order/checkout}"
+						class="btn btn-warning btn-md"><i class="fa fa-shopping-cart"
+						aria-hidden="true"></i>&nbsp;Thanh toán</a> <a class="total-money">Tổng
+						tiền: {{cart.amount | number : 2 }}</a>
+
+				</div>
+			</div>
+		</div>
+
+	</main>
+</body>
+</html>
